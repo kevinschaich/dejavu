@@ -8,7 +8,7 @@ from typing import Dict, List, Tuple
 
 import dejavu.logic.decoder as decoder
 from dejavu.base_classes.base_database import get_database
-from dejavu.config.settings import (DEFAULT_FS, DEFAULT_OVERLAP_RATIO,
+from dejavu.config.settings import (DEFAULT_SAMPLE_RATE, DEFAULT_OVERLAP_RATIO,
                                     DEFAULT_WINDOW_SIZE, FIELD_FILE_SHA1,
                                     FIELD_TOTAL_HASHES,
                                     FINGERPRINTED_CONFIDENCE,
@@ -144,12 +144,12 @@ class Dejavu:
             self.db.set_song_fingerprinted(sid)
             self.__load_fingerprinted_audio_hashes()
 
-    def generate_fingerprints(self, samples: List[int], Fs=DEFAULT_FS) -> Tuple[List[Tuple[str, int]], float]:
+    def generate_fingerprints(self, samples: List[int], Fs=DEFAULT_SAMPLE_RATE) -> Tuple[List[Tuple[str, int]], float]:
         f"""
         Generate the fingerprints for the given sample data (channel).
 
         :param samples: list of ints which represents the channel info of the given audio file.
-        :param Fs: sampling rate which defaults to {DEFAULT_FS}.
+        :param Fs: sampling rate which defaults to {DEFAULT_SAMPLE_RATE}.
         :return: a list of tuples for hash and its corresponding offset, together with the generation time.
         """
         t = time()
@@ -199,7 +199,7 @@ class Dejavu:
 
             song_name = song.get(SONG_NAME, None)
             song_hashes = song.get(FIELD_TOTAL_HASHES, None)
-            nseconds = round(float(offset) / DEFAULT_FS * DEFAULT_WINDOW_SIZE * DEFAULT_OVERLAP_RATIO, 5)
+            nseconds = round(float(offset) / DEFAULT_SAMPLE_RATE * DEFAULT_WINDOW_SIZE * DEFAULT_OVERLAP_RATIO, 5)
             hashes_matched = dedup_hashes[song_id]
 
             song = {

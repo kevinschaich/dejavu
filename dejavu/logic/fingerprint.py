@@ -11,7 +11,7 @@ from scipy.ndimage.morphology import (binary_erosion,
                                       iterate_structure)
 
 from dejavu.config.settings import (CONNECTIVITY_MASK, DEFAULT_AMP_MIN,
-                                    DEFAULT_FAN_VALUE, DEFAULT_FS,
+                                    DEFAULT_FAN_VALUE, DEFAULT_SAMPLE_RATE,
                                     DEFAULT_OVERLAP_RATIO, DEFAULT_WINDOW_SIZE,
                                     FINGERPRINT_REDUCTION, MAX_HASH_TIME_DELTA,
                                     MIN_HASH_TIME_DELTA,
@@ -19,7 +19,7 @@ from dejavu.config.settings import (CONNECTIVITY_MASK, DEFAULT_AMP_MIN,
 
 
 def fingerprint(channel_samples: List[int],
-                Fs: int = DEFAULT_FS,
+                Fs: int = DEFAULT_SAMPLE_RATE,
                 wsize: int = DEFAULT_WINDOW_SIZE,
                 wratio: float = DEFAULT_OVERLAP_RATIO,
                 fan_value: int = DEFAULT_FAN_VALUE,

@@ -1,5 +1,8 @@
 # Dejavu
 
+# Default config file to use
+DEFAULT_CONFIG_FILE = "dejavu.cnf"
+
 # DEJAVU JSON RESPONSE
 SONG_ID = "song_id"
 SONG_NAME = 'song_name'
@@ -58,7 +61,14 @@ CONNECTIVITY_MASK = 2
 
 # Sampling rate, related to the Nyquist conditions, which affects
 # the range frequencies we can detect.
-DEFAULT_FS = 44100
+DEFAULT_SAMPLE_RATE = 44100
+
+# Chunk size to use for microphone recognizer
+DEFAULT_MIC_CHUNK_SIZE = 8192
+
+# Number of channels to use for microphone recognizer
+# (1 = mono, 2 = stereo)
+DEFAULT_MIC_CHANNELS = 1
 
 # Size of the FFT window, affects frequency granularity
 DEFAULT_WINDOW_SIZE = 4096

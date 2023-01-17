@@ -2,13 +2,17 @@ import numpy as np
 import pyaudio
 
 from dejavu.base_classes.base_recognizer import BaseRecognizer
-
+from dejavu.config.settings import (
+    DEFAULT_MIC_CHUNK_SIZE,
+    DEFAULT_MIC_CHANNELS,
+    DEFAULT_SAMPLE_RATE
+)
 
 class MicrophoneRecognizer(BaseRecognizer):
-    default_chunksize = 8192
+    default_chunksize = DEFAULT_MIC_CHUNK_SIZE
     default_format = pyaudio.paInt16
-    default_channels = 2
-    default_samplerate = 44100
+    default_channels = DEFAULT_MIC_CHANNELS
+    default_samplerate = DEFAULT_SAMPLE_RATE
 
     def __init__(self, dejavu):
         super().__init__(dejavu)

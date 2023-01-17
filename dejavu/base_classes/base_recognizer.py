@@ -4,13 +4,13 @@ from typing import Dict, List, Tuple
 
 import numpy as np
 
-from dejavu.config.settings import DEFAULT_FS
+from dejavu.config.settings import DEFAULT_SAMPLE_RATE
 
 
 class BaseRecognizer(object, metaclass=abc.ABCMeta):
     def __init__(self, dejavu):
         self.dejavu = dejavu
-        self.Fs = DEFAULT_FS
+        self.Fs = DEFAULT_SAMPLE_RATE
 
     def _recognize(self, *data) -> Tuple[List[Dict[str, any]], int, int, int]:
         fingerprint_times = []
