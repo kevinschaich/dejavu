@@ -61,6 +61,10 @@ CONNECTIVITY_MASK = 2
 
 # Sampling rate, related to the Nyquist conditions, which affects
 # the range frequencies we can detect.
+# Fingerprinting at lower sample rates will result in a higher
+# match rate on "imperfect"/lower-quality input files/recordings such as compressed MP3s
+# and microphone recordings, while fingerprinting at a higher sample rate will result
+# in a higher match quality on "perfect" / higher quality input files.
 DEFAULT_SAMPLE_RATE = 44100
 
 # Chunk size to use for microphone recognizer
